@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { CssBaseline, Container, ThemeProvider, createTheme } from '@mui/material';
+import { CssBaseline, Box, ThemeProvider, createTheme } from '@mui/material';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -15,18 +15,18 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <div className="App">
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
           <Header />
-          <Container>
+          <Box component="main" sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', width: '100%' }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/donate" element={<Donate />} />
               <Route path="/projects" element={<Projects />} />
             </Routes>
-          </Container>
+          </Box>
           <Footer />
-        </div>
+        </Box>
       </Router>
     </ThemeProvider>
   );
